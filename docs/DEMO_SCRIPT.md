@@ -53,3 +53,5 @@ curl "http://localhost:8000/api/analysis/profile?date=2026-01-15&cutoff=2026-01-
 curl "http://localhost:8000/api/analysis/profile?date=2026-01-15&cutoff=2026-01-14T09:00:00"   # 422: no offset
 cd backend && python -m pytest -q
 ```
+
+_Live app: https://ws-7k3q9x.vercel.app (warm the API via /api/health a minute before recording)._
