@@ -1,0 +1,15 @@
+# Render blueprint for the FastAPI backend (Docker runtime; the Dockerfile bundles the cached dataset).
+# Free-tier web services sleep when idle, so the first request after a pause can take ~1 minute.
+services:
+  - type: web
+    name: windsight-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: CORS_ORIGINS
+        sync: false   # set to your Vercel URL(s), comma-separated
+      - key: LOG_LEVEL
+        value: INFO

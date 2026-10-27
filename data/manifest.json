@@ -1,0 +1,58 @@
+{
+  "data_mode": "elexon_cached",
+  "description": "Real Elexon BMRS data (cached extract). Not synthetic.",
+  "extracted_at_utc": "2026-10-27T13:43:40Z",
+  "window_start_date": "2026-01-01",
+  "window_end_date": "2026-01-31",
+  "window_start_utc": "2026-01-01T00:00:00Z",
+  "window_end_utc_exclusive": "2026-02-01T00:00:00Z",
+  "forecast_publish_range_requested_utc": [
+    "2025-12-28T00:00:00Z",
+    "2026-02-02T00:00:00Z"
+  ],
+  "sources": {
+    "actuals": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FUELHH/stream?fuelType=WIND",
+    "forecasts": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR/stream"
+  },
+  "units": "MW (FUELHH: 30-minute average; WINDFOR: hourly forecast)",
+  "quality": {
+    "actuals_ingest": {
+      "raw_rows": 1495,
+      "invalid_rows": 0,
+      "non_wind_rows_dropped": 0,
+      "missing_generation_dropped": 0,
+      "duplicate_rows_collapsed": 4
+    },
+    "forecasts_ingest": {
+      "raw_rows": 21024,
+      "invalid_rows": 0,
+      "missing_generation_dropped": 0,
+      "duplicate_rows_collapsed": 0,
+      "conflicting_duplicates": 0,
+      "exact_duplicates": 0
+    },
+    "actual_intervals": 1488,
+    "actual_min_mw": 1695.0,
+    "actual_max_mw": 17805.0,
+    "actual_negative_values": 0,
+    "actual_missing_half_hours": 0,
+    "forecast_rows": 18104,
+    "forecast_publications": 272,
+    "forecast_delivery_hours": 744,
+    "forecast_negative_values": 0,
+    "forecast_non_hourly_starts": 0,
+    "vintages_per_delivery_hour_min": 24,
+    "vintages_per_delivery_hour_max": 32
+  },
+  "files": {
+    "wind_actuals_fuelhh.csv.gz": {
+      "sha256": "b3878709692ff2153a502390c630959b674a9ebab097b53049d347c28595f441",
+      "rows": 1488
+    },
+    "wind_forecasts_windfor.csv.gz": {
+      "sha256": "a11012fcba927f6ca57b2b9eacc890df3ea33efd519fdbfd55ce5e784451d921",
+      "rows": 18104
+    }
+  },
+  "licence": "Contains BMRS data (c) Elexon Limited; used under the Elexon open data licence with attribution."
+}
